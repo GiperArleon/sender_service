@@ -10,4 +10,7 @@ public interface SenderReportService {
 
     @WebMethod
     void sendReportToLectors();
+
+    @WebMethod
+    void sendPdfReportToLectors();
 }
