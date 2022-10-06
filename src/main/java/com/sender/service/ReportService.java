@@ -19,8 +19,11 @@ public class ReportService {
                 stringBuilder.append(usr.getUsername()).append("\n");
                 TimeRecordArray recordArray = roaterClient.getRecordsForToday(usr.getId());
                 List<TimeRecord> records = recordArray.getItem();
+                if(records.isEmpty()) {
+                    stringBuilder.append("   нет записей\n");
+                }
                 String tmp = records.stream()
-                        .map(r -> String.format("%s %d ч %d м", r.getDescription(), r.getHours(), r.getMinutes()))
+                        .map(r -> String.format("   %s %d ч %d м", r.getDescription(), r.getHours(), r.getMinutes()))
                         .collect(Collectors.joining("\n"));
                 stringBuilder.append(tmp);
             }
