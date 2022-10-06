@@ -1,1 +1,2 @@
-# sender_service
+# sender service
+сервис отправителя отчетов
