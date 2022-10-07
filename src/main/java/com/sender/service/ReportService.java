@@ -16,7 +16,7 @@ public class ReportService {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("отчет за: ").append(LocalDate.now().toString()).append("\n");
             for(User usr: userList) {
-                stringBuilder.append(usr.getUsername()).append("\n");
+                stringBuilder.append(usr.getUsername()).append(" ").append(usr.getSurname()).append("\n");
                 TimeRecordArray recordArray = roaterClient.getRecordsForToday(usr.getId());
                 List<TimeRecord> records = recordArray.getItem();
                 if(records.isEmpty()) {
