@@ -14,7 +14,7 @@ public class ReportService {
             UserArray users = roaterClient.getAllUsers();
             List<User> userList = users.getItem();
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("отчет за: ").append(LocalDate.now().toString()).append("\n");
+            stringBuilder.append("Отчет за: ").append(LocalDate.now().toString()).append("\n");
             for(User usr: userList) {
                 stringBuilder.append(usr.getUsername()).append(" ").append(usr.getSurname()).append("\n");
                 TimeRecordArray recordArray = roaterClient.getRecordsForToday(usr.getId());
@@ -41,9 +41,9 @@ public class ReportService {
             UserArray users = roaterClient.getAllUsers();
             List<User> userList = users.getItem();
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("отчет за: ").append(LocalDate.now().toString()).append("\n");
+            stringBuilder.append("Отчет за: ").append(LocalDate.now().toString()).append("\n");
             for(User usr: userList) {
-                stringBuilder.append(usr.getUsername()).append("\n");
+                stringBuilder.append(usr.getUsername()).append(" ").append(usr.getSurname()).append("\n");
                 TimeRecordArray recordArray = roaterClient.getRecordsForToday(usr.getId());
                 List<TimeRecord> records = recordArray.getItem();
                 if(records.isEmpty()) {

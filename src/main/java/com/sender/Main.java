@@ -1,6 +1,6 @@
 package com.sender;
 
-import com.sender.service.ReportsThread;
+import com.sender.service.ReportsPdfThread;
 import com.sender.soap.server.SenderReportServiceImpl;
 import com.sender.tools.Utils;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class Main {
         try {
             log.info("* * *");
             final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(POOL_SIZE);
-            scheduler.scheduleAtFixedRate(new ReportsThread(), Utils.initialDelayMinutes(SEND_REPORTS_TIME), Utils.MINUTES_IN_DAY, TimeUnit.MINUTES);
+            scheduler.scheduleAtFixedRate(new ReportsPdfThread(), Utils.initialDelayMinutes(SEND_REPORTS_TIME), Utils.MINUTES_IN_DAY, TimeUnit.MINUTES);
 
             Endpoint endpoint = Endpoint.create(new SenderReportServiceImpl());
             endpoint.publish("http://localhost:8044/reports");
